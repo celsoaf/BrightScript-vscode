@@ -18,7 +18,13 @@
         "commands": [{
             "command": "extension.sayHello",
             "title": "Hello World"
-        }]
+        }],
+        "languages": [{
+			"id": "brightscript",
+			"extensions": [ ".brs", ".bs"],
+			"aliases": [ "BrightScript" ],
+			"configuration": "./language-configuration.json"
+		}],
 		"grammars": [{
 			"language": "brightscript",
 			"scopeName": "source.brs",
