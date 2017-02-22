@@ -19,6 +19,11 @@
             "command": "extension.sayHello",
             "title": "Hello World"
         }]
+		"grammars": [{
+			"language": "brightscript",
+			"scopeName": "source.brs",
+			"path": "./syntaxes/BrightScript.tmLanguage"
+		}]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
