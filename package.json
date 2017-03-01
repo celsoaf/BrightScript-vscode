@@ -28,7 +28,7 @@
 		"grammars": [{
 			"language": "brightscript",
 			"scopeName": "source.brs",
-			"path": "./syntaxes/BrightScript.tmLanguage"
+			"path": "./syntaxes/BrightScript.tmLanguage.json"
 		}]
     },
     "scripts": {

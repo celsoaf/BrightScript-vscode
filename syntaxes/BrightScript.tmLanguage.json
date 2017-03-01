@@ -1,0 +1,129 @@
+{
+    "name": "BrightScript",
+    "scopeName": "source.brs",
+    "fileTypes": [
+        "brs"
+    ],
+    "uuid": "3194ae45-03ed-40d0-97fa-55bf088ceabb",
+    "patterns": [
+        {
+            "include": "#literal"
+        },
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#keyword"
+        },
+        {
+            "include": "#type"
+        },
+        {
+            "include": "#string"
+        },
+        {
+            "include": "#nativeFunc"
+        },
+        {
+            "include": "#number"
+        },
+        {
+            "include": "#identifier"
+        },
+        {
+            "include": "#operator"
+        }
+    ],
+    "repository":{
+        "literal":{
+            "patterns":[
+                {
+                    "name": "constant.language.brs",
+                    "match": "true|false|Invalid"
+                }
+            ]
+        },
+        "comment":{
+            "patterns":[
+                {
+                    "name": "comment.line.apostrophe.brs",
+                    "begin": "'",
+                    "end": "\\n"
+                }
+            ]
+        }, 
+        "keyword":{
+            "patterns":[
+                {
+                    "name": "keyword.language.brs",
+                    "match": "(s(t(op|ep)|ub)|i(n|f)|t(hen|o)|dim|print|e(nd(if|(sub|f(or|unction)|while))?|lse(if)?|xit(for|while)?|ach)|f(or|unction)|as|while|re(turn|m)|goto)"
+                }
+            ]
+        },
+        "type":{
+            "patterns":[
+                {
+                    "name": "type.language.brs",
+                    "match": "(string|inte(rface|ger)|object|double|float|b(oolean|rsub)|void)"
+                }
+            ]
+        },
+        "string": {
+            "patterns":[
+                {
+                    "name": "string.language.brs",
+                    "begin": "\"",
+                    "end": "\""
+                }
+            ]
+        },
+        "nativeFunc":{
+            "patterns":[
+                {
+                    "name": "builtInFuncs.language.brs",
+                    "match": "(GetLastRun(RuntimeError|CompileError)|R(nd|un)|Box|Type)"
+                },
+                {
+                    "name": "globalFuncs.language.brs",
+                    "match": "(Re(adAsciiFile|bootSystem)|GetInterface|MatchFiles|Sleep|C(opyFile|reate(Directory|Object))|Delete(Directory|File)|Library|UpTime|FormatDrive|ListDir|W(ait|riteAsciiFile))"
+                },
+                {
+                    "name": "stringFuncs.language.brs",
+                    "match": "(Right|Mid|Str(i(ng(i)?)?)?|Chr|Instr|UCase|Val|Asc|L(Case|e(n|ft)))"
+                },
+                {
+                    "name": "mathFuns.language.brs",
+                    "match": "(S(in|qr|gn)|C(sng|dbl|os)|Tan|Int|Exp|Fix|Log|A(tn|bs))"
+                }
+            ]
+        },
+        "number":{
+            "patterns":[
+                {
+                    "name": "num.language.brs",
+                    "match": "[0-9]+"
+                },
+                {
+                    "name": "real.language.brs",
+                    "match": "([0-9]+.[0-9]*)|([0-9]*.[0-9]+)"
+                }
+            ]
+        },
+        "identifier":{
+            "patterns": [
+                {
+                    "name": "identifier.language.brs",
+                    "match": "[a-zA-Z_][a-zA-Z0-9_]*"
+                }
+            ]
+        },
+        "operator":{
+            "patterns": [
+                {
+                    "name": "operator.language.brs",
+                    "match": "\\(|\\)|\\[|\\]|\\{|\\}|=|>=|<zz|>|<|<>|\\+|-|\\*|\/|\\^|&|\b(?i:(And|Not|Or))\\b"
+                }
+            ]
+        }
+    }
+}
