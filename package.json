@@ -29,6 +29,10 @@
 			"language": "brightscript",
 			"scopeName": "source.brs",
 			"path": "./syntaxes/BrightScript.tmLanguage.json"
+		}],
+		"snippets": [{
+			"language": "brightscript",
+			"path": "./snippets/BrightScript.json"
 		}]
     },
     "scripts": {
