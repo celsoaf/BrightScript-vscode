@@ -24,11 +24,22 @@
 			"extensions": [ ".brs", ".bs"],
 			"aliases": [ "BrightScript" ],
 			"configuration": "./language-configuration.json"
+		},
+        {
+			"id": "scenegraph",
+			"extensions": [ ".xml"],
+			"aliases": [ "SceneGraph" ],
+			"configuration": "./language-configuration.json"
 		}],
 		"grammars": [{
 			"language": "brightscript",
 			"scopeName": "source.brs",
-			"path": "./syntaxes/BrightScript.tmLanguage.json"
+			"path": "./syntaxes/brightscript.json"
+		},
+        {
+			"language": "scenegraph",
+			"scopeName": "text.xml",
+			"path": "./syntaxes/scenegraph.json"
 		}],
 		"snippets": [{
 			"language": "brightscript",
