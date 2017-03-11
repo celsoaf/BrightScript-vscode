@@ -1,0 +1,21 @@
+{
+  "name": "brightscript-server",
+  "description": "BrightScript language server in node.",
+  "version": "0.0.1",
+  "author": "CelsoAF",
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.52",
+    "typescript": "^2.1.6"
+  },
+  "scripts": {
+    "compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+    "watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc --watch -p ."
+  }
+}

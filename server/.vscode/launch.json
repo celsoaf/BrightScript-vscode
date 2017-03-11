@@ -1,0 +1,16 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+    "version": "0.2.0",
+	// List of configurations. Add new configurations or edit existing ones.
+	"configurations": [
+		{
+			"name": "Attach",
+			"type": "node",
+			"request": "attach",
+			"port": 6009,
+			"sourceMaps": true,
+			"outFiles": [ "${workspaceRoot}/../client/server/**/*.js" ],
+			"protocol": "legacy"
+		}
+	]
+}
