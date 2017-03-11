@@ -4,6 +4,8 @@
     "description": "BrightScript Language",
     "version": "0.0.1",
     "publisher": "celsoaf",
+    "license": "MIT",
+    "author": "CelsoAF",
     "engines": {
         "vscode": "^1.5.0"
     },
