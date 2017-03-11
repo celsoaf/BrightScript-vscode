@@ -13,14 +13,9 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
     ],
     "main": "./out/client/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }],
         "languages": [{
 			"id": "brightscript",
 			"extensions": [ ".brs", ".bs"],
