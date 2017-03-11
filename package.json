@@ -15,7 +15,7 @@
     "activationEvents": [
         "onCommand:extension.sayHello"
     ],
-    "main": "./out/src/extension",
+    "main": "./out/client/src/extension",
     "contributes": {
         "commands": [{
             "command": "extension.sayHello",
