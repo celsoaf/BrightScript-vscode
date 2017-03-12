@@ -1,7 +1,7 @@
 'use strict';
 import { CancellationToken, Hover, HoverProvider, MarkedString, Position, TextDocument, workspace } from 'vscode';
 
-
+import globals = require('../language/globals');
 
 export default class BrightScriptHoverProvider implements HoverProvider {
 
@@ -17,9 +17,13 @@ export default class BrightScriptHoverProvider implements HoverProvider {
 			return;
 		}
 
-    let name = document.getText(wordRange);
+    let name = document.getText(wordRange).toLowerCase();
 
-		let contents: MarkedString[] = ["Test", { language: 'brightscript', value: name }];
-		return new Hover(contents, wordRange);
+		var entry = globals.globalfunctions[name];
+		if (entry && entry.description) {
+			let signature = name + (entry.signature || '');
+			let contents: MarkedString[] = [entry.description, { language: 'brightscript', value: signature }];
+			return new Hover(contents, wordRange);
+		}
   }
 }
