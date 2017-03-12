@@ -13,9 +13,22 @@
         "Other"
     ],
     "activationEvents": [
+        "onLanguage:brightscript",
+        "onLanguage:scenegraph"
     ],
     "main": "./out/src/extension",
     "contributes": {
+        "configuration":{
+            "title": "BrightScript",
+            "type": "object",
+            "properties": {
+                "brightscript.suggest.basic":{
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Configures if are enabled."
+                }
+            }
+        },
         "languages": [{
 			"id": "brightscript",
 			"extensions": [ ".brs", ".bs"],
