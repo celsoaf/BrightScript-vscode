@@ -20,45 +20,45 @@
 	"while":{
 		"prefix": "while",
 		"body": [
-			"While ${1:Boolean}",
+			"while ${1:Boolean}",
 			"\t$0",
-			"End While"
+			"end while"
 		],
 		"description": "While ... End While"
 	},
 	"if":{
 		"prefix": "if",
 		"body":[
-			"If ${1:Boolean}",
+			"if ${1:Boolean}",
 			"\t$0",
-			"End If"
+			"end if"
 		]
 	},
 	"ife":{
 		"prefix": "ife",
 		"body":[
-			"If ${1:Boolean}",
+			"if ${1:Boolean}",
 			"\t$0",
-			"Else",
+			"else",
 			"\t$0",
-			"End If"
+			"end if"
 		]
 	},
 	"function":{
 		"prefix": "func",
 		"body": [
-			"Function ${1:FunctionName}(${2:ParameterList}) As ${3:ReturnType}",
+			"function ${1:FunctionName}(${2:ParameterList}) As ${3:ReturnType}",
 			"\t\t$0",
-			"End Function"
+			"end function"
 		],
 		"description": "Function..."
 	},
 	"method":{
 		"prefix": "method",
 		"body": [
-			"${1:MethodName}: Function(${2:ParameterList}) As ${3:ReturnType}",
+			"${1:MethodName}: function(${2:ParameterList}) As ${3:ReturnType}",
 			"\t\t$0",
-			"End Function"
+			"end function"
 		],
 		"description": "Method..."
 	}
