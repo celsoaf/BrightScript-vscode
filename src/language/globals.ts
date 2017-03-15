@@ -188,3 +188,66 @@ export var stringFunctions: IEntries = {
     signature: "Substitute(str as String, arg0 as String, arg1 = '' as String, arg2 = '' as String, arg3 = '' as String) as String"
   }
 }
+
+export var mathFunctions: IEntries = {
+  abs:{
+    signature: "Abs(x as Float) as Float",
+    description: "Returns the absolute value of the argument."
+  },
+  atn:{
+    signature: "Atn(x as Float) as Float",
+    description: "Returns the arctangent (in radians) of the argument; that is, ATN(X) returns 'the angle whose tangent is X'. To get arctangent in degrees, multiply ATN(X) by 57.29578."
+  },
+  cdbl:{
+    signature: "Cdbl(x as Integer) as Float",
+    description: "Also returns a single precision float representation of the argument. Someday may return double."
+  },
+  cint:{
+    signature: "Cint(x as Float) as Integer",
+    description: "Returns an integer representation of the argument, rounding up from midpoints. CINT(2.1) returns 2; CINT(2.5) returns 3; CINT(-2.2) returns -2; CINT(-2.5) returns -2; CINT(-2.6) returns -3."
+  },
+  cos:{
+    signature: "Cos(x as Float) as Float",
+    description: "Returns the cosine of the argument (argument must be in radians). To obtain the cosine of X when X is in degrees, use CGS(X*.01745329)."
+  },
+  csng: {
+    signature: "Csng(x as Integer) as Float",
+    description: "Returns a single-precision float representation of the argument."
+  },
+  exp: {
+    signature: "Exp(x as Float) as Float",
+    description: "Returns the 'natural exponential' of X, that is, ex. This is the inverse of the LOG function, so X=EXP(LOG(X))."
+  },
+  fix:{
+    signature: "Fix(x as Float) as Integer",
+    description: "Returns a truncated representation of the argument. All digits to the right of the decimal point are simply chopped off, so the resultant value is an integer. For non-negative X, FIX(X)=lNT(X). For negative values of X, FIX(X)=INT(X)+1. For example, FIX(2.2) returns 2, and FIX(-2.2) returns -2."
+  },
+  int:{
+    signature: "Int(x as Float) as Integer",
+    description: "Returns an integer representation of the argument, using the largest whole number that is not greater than the argument.. INT(2.5) returns 2; INT(-2.5) returns -3; and INT(1000101.23) returns 10000101."
+  },
+  log: {
+    signature: "Log(x as Float) as Float",
+    description: "Returns the natural logarithm of the argument, that is, loge(x) or ln(x). This is the inverse of the EXP function, so LOG(EXP(X)) = X. To find the logarithm of a number to another base b, use the formula logb(X) = loge(X) / loge(b). For example, LOG(32767) / LOG(2) returns the logarithm to base 2 of 32767."
+  },
+  rnd:{
+    signature: "Rnd(range as Integer) as Integer",
+    description: "Generates a pseudo-random number using the current pseudo-random 'seed number' (generated internally and not accessible to user). RND may be used to produce random numbers between 0 and 1, or random integers greater than 0, depending on the argument."
+  },
+  sgn:{
+    signature: "Sgn(x as Float) as Integer",
+    description: "The 'sign' function: returns -1 for X negative, 0 for X zero, and +1 for X positive."
+  },
+  sin: {
+    signature: "Sin(x as Float) as Float",
+    description: "Returns the sine of the argument (argument must be in radians). To obtain the sine of X when X is in degrees, use SIN(X*.01745329)."
+  },
+  sqr: {
+    signature: "Sqr(x as Float) as Float",
+    description: "Returns the square root of the argument. SQR(X) is the same as X ^ (1/2), only faster."
+  },
+  tan: {
+    signature: "Tan(x as Float) as Float",
+    description: "Returns the tangent of the argument (argument must be in radians). To obtain the tangent of X when X is in degrees, use TAN(X*.01745329)."
+  }
+}
