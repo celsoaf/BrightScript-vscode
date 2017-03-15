@@ -125,3 +125,66 @@ export var builtInFunctions: IEntries = {
     signature: "GetLastRunRuntimeError() as Integer"
   }
 }
+
+export var stringFunctions: IEntries = {
+  ucase:{
+    description:"Converts the string to all upper case.",
+    signature: "UCase(s as String) as String"
+  },
+  lcase:{
+    description: "Converts the string to all lower case.",
+    signature: "LCase(s as String) as String"
+  },
+  asc:{
+    description: "Returns the Unicode ('ASCII') value for the first character of the specified string.",
+    signature: "Asc(letter as String) as Integer"
+  },
+  chr: {
+    description: "Performs the inverse of the Asc function: returns a one-character string whose character has the specified Unicode value.",
+    signature:"Chr(ch as Integer) as String"
+  },
+  instr:{
+    description: "Returns the position of the first instances of substring within text, starting at the specified start position.",
+    signature: "Instr(start as Integer, text as String, substring as String) as Integer"
+  },
+  left:{
+    description: "Returns the first n characters of s.",
+    signature: "Left(s as String, n as Integer) as String"
+  },
+  len:{
+    description: "Returns the number of characters in the specified string.",
+    signature: "Len(s as String) as Integer"
+  },
+  mid:{
+    description: "Returns a substring of s with length n and starting at position p.",
+    signature: "Mid(s as String, p as Integer, [n as Integer]) as String"
+  },
+  right:{
+    description: "Returns the last n characters of s.",
+    signature: "Right(s as String, n as Integer) as String"
+  },
+  str:{
+    description: "Converts a value to a string. Str(A), for example, returns a string equal to the decimal representation of the numeric value of A.",
+    signature: "Str(value as Float) as String"
+  },
+  stri:{
+    description: "Converts a value to a string. Str(A), for example, returns a string equal to the decimal representation of the numeric value of A.",
+    signature: "StrI(value as Float) as String"
+  },
+  string:{
+    description: "Returns a string composed of n copies of the second argument concatenated together.",
+    signature: "String(n as Integer, str as String ) as String"
+  },
+  stringi: {
+    description: "Returns a string composed of n copies of the character whose Unicode value is the second argument.",
+    signature: "StringI(n as Integer, ch as Integer) as String"
+  },
+  val:{
+    description: "Performs the inverse of the STR function: returns the number represented by the characters in a string argument.",
+    signature: "Val(s as String) as Float"
+  },
+  substitute: {
+    description: "Replaces all instances of {0} or ^0 in str with arg0.  Similarly, replaces all instances of {1} or ^1 with arg1, {2} or ^2 with arg2, and {3} or ^3 with arg3.",
+    signature: "Substitute(str as String, arg0 as String, arg1 = '' as String, arg2 = '' as String, arg3 = '' as String) as String"
+  }
+}
