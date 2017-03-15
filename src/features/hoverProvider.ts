@@ -19,7 +19,7 @@ export default class BrightScriptHoverProvider implements HoverProvider {
 
     let name = document.getText(wordRange).toLowerCase();
 
-		var entry = globals.globalfunctions[name];
+		var entry = globals.globalFunctions[name] || globals.builtInFunctions[name];
 		if (entry && entry.description) {
 			let signature = name + (entry.signature || '');
 			let contents: MarkedString[] = [entry.description, { language: 'brightscript', value: signature }];

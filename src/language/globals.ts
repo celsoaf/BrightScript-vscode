@@ -4,7 +4,7 @@ import { EMSGSIZE } from 'constants';
 export interface IEntry { description?:string, signature?:string }
 export interface IEntries { [name: string]: IEntry }
 
-export var globalfunctions: IEntries = {
+export var globalFunctions: IEntries = {
   sleep:{
     description: "This function causes the script to pause for the specified time, without wasting CPU cycles. There are 1000 milliseconds in one second.",
     signature: "Sleep(milliseconds as Integer) as Void"
@@ -88,5 +88,40 @@ export var globalfunctions: IEntries = {
   tr:{
     description: "Translates the source string into the language of the current locale. The function looks for a translations.xml file in the XLIFF format in the pkg:/locale subdirectory named for the current locale (see ifDeviceInfo.GetCurrentLocale for the list of currently-supported locales). If the translations.xml file exists for the current locale, and contains the source string with a translated string, the function returns the translated string. Otherwise, the function returns the original source string.",
     signature: "Tr(source as String) as String"
+  }
+}
+
+export var builtInFunctions: IEntries = {
+  createobject:{
+    description: "Creates a BrightScript Component of class classname specified. Return invalid if the object creation fails. Some Objects have optional parameters in their constructor that are passed after name.",
+    signature: "CreateObject(classname as String, [optional parameters]) as Object"
+  },
+  type: {
+    description: "Returns the type of a variable and/or object. See the BrightScript Component specification for a list of types.",
+    signature: "Type(variable, [optional version]) as String"
+  },
+  getglobalaa:{
+    description: "Each script has a global Associative Array. It can be fetched with this function. New in BrightScript 3.",
+    signature: "GetGlobalAA() as Object"
+  },
+  box: {
+    description: "Box() will return an object version of an intrinsic type, or pass through an object if given one.",
+    signature: "Box(x as Dynamic) as Object"
+  },
+  run: {
+    description: "The run command will run a script from a script. Args may be passed to the scripts Main() function, and the called script may return arguments. If a filename string is passed, that file compiled and run. ",
+    signature: "Run(filename as String [ , Args…]) As dynamic"
+  },
+  eval:{
+    description: "Eval can be used to run a code snippet in the context of the current function. It performs a compile, and then byte code execution.",
+    signature: "Eval(code as String) as Dynamic"
+  },
+  getlastruncompileerror:{
+    description: "Returns an roList of compile errors, or invalid if no errors. Each list entry is an roAssociativeArray with the keys: ERRNO, ERRSTR, FILESPEC, and LINENO.",
+    signature: "GetLastRunCompileError() as Object"
+  },
+  getlastrunruntimeerror: {
+    description: "Returns an error code result after the last script Run(). ",
+    signature: "GetLastRunRuntimeError() as Integer"
   }
 }
