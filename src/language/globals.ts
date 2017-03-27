@@ -328,36 +328,73 @@ export var objectTypes: IEntries = {
 }
 
 export var keywords: IEntries = {
-  AppendFile: {},
-  AppendString: {},
+  AppendFile: {
+    description: "Appends the contents of the Byte Array to the specified file. Returns true if successful.",
+    signature: "AppendFile(path as String) As Boolean"
+  },
+  AppendString: {
+    signature: "AppendString(s as String, len as Integer) as Void",
+    description: "Appends the first len characters of s to the end of the string."
+  },
   As: {},
-  Boolean: {},
-  Clear: {},
+  Boolean: { description: "Either true or false" },
+  Clear: {
+    signature: "Clear() as Void",
+    description: "Remove all key/values from the associative array."
+  },
   Count: {},
-  DIM: {},
-  DoesExist: {},
-  Double: {},
-  Dynamic: {},
-  EACH: {},
-  ELSE: {},
-  ELSEIF: {},
+  Delete: {
+    signature: "Delete(key as String) as Boolean",
+    description: "Look for an entry in the array associated with the specified key. If there is such an value then it is deleted and true is returned. If not then false is returned."
+  },
+  DIM: { 
+    signature: "DIM name (dim1, dim2, …, dimK)",
+    description: "DIM ('dimension') is a statement that provides a short cut to creating roArray objects. It sets variable name to type 'roArray', and creates Arrays of Arrays as needed for multi-dimensional arrays. The dimension passed to Dim is the index of the maximum entry to be allocated (the array initial size = dimension+1); the array will be resized larger automatically if needed."
+  },
+  DoesExist: {
+    signature: "DoesExist(key as String) as Boolean",
+    description: "Look for an entry in the array associated with the specified key. If there is no associated object then false is returned. If there is such an object then true is returned."
+  },
+  Double: { description: "A 64-bit IEEE floating point number. (Although Double is an intrinsically understood type, it is implemented internally with the roIntrinsicDouble component. This is generally hidden from the developer)." },
+  Dynamic: { description: "Unless otherwise specified, a variable is dynamically typed. This means that the type is determined by the value assigned to it at assignment time." },
+  EACH: {
+    signature: "FOR EACH item IN object",
+    description: "The FOR EACH statement iterates through each item in any object that has an 'ifEnum' interface (enumerator). The For block is terminated with a END FOR statement. The variable item is set at the top of the loop to the next item in the object. "
+  },
+  ELSE: {
+    signature: "Block IF, ELSEIF, THEN, ENDIF",
+    description: "The multi-line or block form of IF THEN ELSE is more flexible."
+  },
+  ELSEIF: {
+    signature: "Block IF, ELSEIF, THEN, ENDIF",
+    description: "The multi-line or block form of IF THEN ELSE is more flexible."
+  },
   END: {},
   ENDIF: {},
   Exit: {},
-  Float: {},
-  FOR: {},
+  Float: { description: "A 32-bit IEEE floating point number." },
+  FOR: {
+    signature: "FOR counter = exp TO exp [STEP exp] / END FOR",
+    description: "Creates an iterative (repetitive) loop so that a sequence of program statements may be executed over and over a specified number of times."
+  },
   FromAsciiString: {},
   FromBase64String: {},
   FromHexString: {},
-  Function: {},
-  GOTO: {},
+  Function: { description: "Functions (and Subs, which are functions with void return types) are an intrinsic type. They can be stored in variables and passed to functions." },
+  GOTO: {
+    signature: "GOTO label",
+    description: "Transfers program control to the specified line number. GOTO label results in an branch. A label is an identifier terminated with a colon, on a line by itself."
+  },
   HasAttribute: {},
-  IF: {},
+  IF: {
+    signature: "IF expression THEN statements [ELSE statements]",
+    description: "There are two forms of the IF THEN ELSE statement. The single line form (this one), and the multi-line or block form (see next section). The IF instructs the Interpreter to test the following expression. If the expression is true, control will proceed to the statements immediately following the expression. If the expression is False, control will jump to the matching ELSE statement (if there is one) or down to the next program line."
+  },
   IN: {},
   Int: {},
-  Integer: {},
-  Interface: {},
-  Invalid: {},
+  Integer: { description: " A 32-bit signed integer number." },
+  Interface: { description: "An interface in a BrightScript component. If a dot operator is used on an interface type, the member must be static (since there is no object context)." },
+  Invalid: { description: "The type invalid has only one value: invalid. It is returned in various cases, for example, when reading an array element that has never been set." },
   IsEmpty: {},
   IsLittleEndianCPU: {},
   IsName: {},
@@ -365,25 +402,41 @@ export var keywords: IEntries = {
   Lookup: {},
   MD5: {},
   NEXT: {},
-  Object: {},
+  Object: { description: "A reference to a BrightScript component. Note that if you use the 'type()' function, you will not get 'Object', but instead you will get the type of object. E.g. 'roArray', 'roAssociativeArray', 'roList', 'roVideoPlayer', etc.  Note that intrinsic array and associative array values correspond to roArray and roAssociativeArray components respectively.0 " },
   Peek: {},
   Pop: {},
   PostMessage: {},
-  PRINT: {},
+  PRINT: {
+    signature: "PRINT item list",
+    description: "Prints an item or a list of items on the console. The items may be either strings, number, variables, or expressions. Objects that have an ifInt, ifFloat, or ifString interface may also be printed."
+  },
   Push: {},
   ReadFile: {},
-  REM: {},
+  REM: {
+    signature: "REM",
+    description: "Instructs the compiler to ignore the rest of the program line. This allows you to insert comments (REMarks) into your program for documentation. An ' (apostrophe) may be used instead of REM."
+  },
   RemoveHead: {},
   RemoveIndex: {},
   RemoveTail: {},
   Reset: {},
   ResetIndex: {},
-  RETURN: {},
+  RETURN: {
+    signature: "RETURN [expression]",
+    description: "Used to return from a function back to the caller. If the function is not of type Void, return can return a value to the caller."
+  },
   Shift: {},
   Simplify: {},
   STEP: {},
-  STOP: {},
-  String: {},
+  STOP: {
+    signature: "STOP",
+    description: "Interrupts execution return a STOP error. Invokes the debugger. Use 'cont' at the debug prompt to continue execution, or 'step' to single step."
+  },
+  String: { description: "A sequence of Unicode characters. Internally there are two intrinsic string states. The first is for constant strings." },
+  TAB: {
+    signature: "TAB (expression)",
+    description: "Moves the cursor to the specified position on the current line (modulo the width of your console if you specify TAB positions greater than the console width). TAB may be used several times in a PRINT list."
+  },
   THEN: {},
   TO: {},
   ToAsciiString: {},
@@ -394,6 +447,12 @@ export var keywords: IEntries = {
   Unshift: {},
   Void: {},
   WaitMessage: {},
-  While: {},
-  WriteFile: {}
+  While: {
+    signature: "WHILE expression / EXIT WHILE / END WHILE",
+    description: "The While loop executes until expression is false. The 'exit while' statement can be used to terminate a while loop prematurely."
+  },
+  WriteFile: {
+    signature: "WriteFile(path as String) As Boolean",
+    description: "Writes the bytes contained in the Byte Array to the specified file. Returns true if successful."
+  }
 }
