@@ -5,6 +5,7 @@
 import * as vscode from 'vscode';
 import BrightScriptHoverProvider from './features/hoverProvider';
 import BrightScriptCompletionItemProvider from './features/completionItemProvider';
+import BrightScriptSignatureHelpProvider from './features/signatureHelpProvider';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -15,6 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.languages.registerHoverProvider('brightscript', new BrightScriptHoverProvider()));
     context.subscriptions.push(
         vscode.languages.registerCompletionItemProvider('brightscript', new BrightScriptCompletionItemProvider()));
+    context.subscriptions.push(
+        vscode.languages.registerSignatureHelpProvider('brightscript', new BrightScriptSignatureHelpProvider(), '(', ','));
 	
 }
 
