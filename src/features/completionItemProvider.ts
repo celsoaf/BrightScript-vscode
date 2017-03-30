@@ -1,3 +1,4 @@
+import { start } from 'repl';
 import {
   CancellationToken,
   CompletionItem,
@@ -34,7 +35,11 @@ export default class BrightScriptCompletionItemProvider implements CompletionIte
 			range = new Range(position, position);
 		}
 
-    var added: any = {};
+		if (this.previuosCharacter(document, range.start) === '.') {
+			return Promise.resolve(result);
+		}
+		
+		var added: any = {};
 		var createNewProposal = function (kind: CompletionItemKind, name: string, entry: globals.IEntry): CompletionItem {
 			var proposal: CompletionItem = new CompletionItem(name);
 			proposal.kind = kind;
@@ -86,4 +91,18 @@ export default class BrightScriptCompletionItemProvider implements CompletionIte
 
     return Promise.resolve(result);
   }
+
+	private	previuosCharacter(document: TextDocument, pos: Position): String {
+		if (pos.character > 0) {
+			let start = new Position(pos.line, pos.character - 1);
+			let end = new Position(pos.line, pos.character - 0);
+
+			let range = new Range(start, end);
+			let char = document.getText(range); 
+
+			return char;
+		}
+
+		return '';
+	}
 }
