@@ -9,7 +9,7 @@
     "engines": {
         "vscode": "^1.5.0"
     },
-    "categories": [
+    "categories": [        
         "Formatters",
         "Other"
     ],
@@ -18,47 +18,32 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "languages": [
-            {
-                "id": "brightscript",
-                "extensions": [
-                    ".brs",
-                    ".bs"
-                ],
-                "aliases": [
-                    "BrightScript"
-                ],
-                "configuration": "./language-configuration.json"
-            },
-            {
-                "id": "scenegraph",
-                "extensions": [
-                    ".xml"
-                ],
-                "aliases": [
-                    "SceneGraph"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "brightscript",
-                "scopeName": "source.brs",
-                "path": "./syntaxes/brightscript.json"
-            },
-            {
-                "language": "scenegraph",
-                "scopeName": "text.xml",
-                "path": "./syntaxes/scenegraph.json"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "brightscript",
-                "path": "./snippets/BrightScript.json"
-            }
-        ]
+        "languages": [{
+			"id": "brightscript",
+			"extensions": [ ".brs", ".bs"],
+			"aliases": [ "BrightScript" ],
+			"configuration": "./language-configuration.json"
+		},
+        {
+			"id": "scenegraph",
+			"extensions": [ ".xml"],
+			"aliases": [ "SceneGraph" ],
+			"configuration": "./language-configuration.json"
+		}],
+		"grammars": [{
+			"language": "brightscript",
+			"scopeName": "source.brs",
+			"path": "./syntaxes/brightscript.json"
+		},
+        {
+			"language": "scenegraph",
+			"scopeName": "text.xml",
+			"path": "./syntaxes/scenegraph.json"
+		}],
+		"snippets": [{
+			"language": "brightscript",
+			"path": "./snippets/BrightScript.json"
+		}]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
