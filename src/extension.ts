@@ -1,29 +1,55 @@
-'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+    var inwardKeywords = ['sub', 'for', 'while', 'if'];
+    var outwardKeywords = ['end', 'exit', 'step'];
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "brightscript" is now active!');
+    vscode.languages.registerDocumentFormattingEditProvider({ language: 'brightscript', scheme: 'file' }, {
+        provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
+            var changes: vscode.TextEdit[] = [];
+            var indents = 0;
+            for (let i = 0; i < document.lineCount; i++) {
+                let direction = 0;
+                let line = document.lineAt(i);
+                var lowerLine = line.text.toLowerCase().trim();
+                //determine if children should be indended after this line
+                inner: for (var j = 0; j < inwardKeywords.length; j++) {
+                    let keyword = inwardKeywords[j];
+                    if (lowerLine.startsWith(keyword)) {
+                        direction = 1;
+                        break inner;
+                    }
+                }
+                //determine if children should be outdented after this line
+                inner: for (var j = 0; j < inwardKeywords.length; j++) {
+                    let keyword = outwardKeywords[j];
+                    if (lowerLine.startsWith(keyword)) {
+                        direction = -1;
+                        break inner;
+                    }
+                }
+                //if the direction is backwards, we need to move THIS line backwards
+                if (direction === -1) {
+                    indents += direction;
+                }
+                var spaceCount = indents * 4;
+                //if the line is an else statement, it needs outdented but without affecting the next line
+                if (lowerLine.startsWith('else')) {
+                    spaceCount -= 4;
+                }
+                var spaces = Array(spaceCount + 1).join(' ');
+                var spacedLine = spaces += line.text.trim();
+                changes.push(vscode.TextEdit.replace(line.range, spacedLine));
+                //if the direction is forwards, move the NEXT line forward
+                if (direction !== -1) {
+                    indents += direction;
+                }
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+            }
+            return changes;
+        }
     });
-
-    context.subscriptions.push(disposable);
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {
 }
