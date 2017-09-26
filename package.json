@@ -9,18 +9,15 @@
     "engines": {
         "vscode": "^1.5.0"
     },
-    "categories": [
+    "categories": [        
+        "Formatters",
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onLanguage:brightscript"
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }],
         "languages": [{
 			"id": "brightscript",
 			"extensions": [ ".brs", ".bs"],
